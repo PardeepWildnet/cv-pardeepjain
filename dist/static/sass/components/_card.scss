@@ -1,0 +1,101 @@
+// CARDS
+%card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #fff;
+    border-radius: 2px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $rgba-black;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+.card {
+    @extend %card;
+
+    .card-img-cover {
+        position: relative;
+        color: #fff;
+
+        .card-img {
+            position: relative;
+            overflow: hidden;
+
+            &:before {
+                display: block;
+                width: 100%;
+                padding-top: 100%;
+                content: '';
+            }
+
+            img {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                left: 0;
+                width: 100%;
+                height: auto;
+                transform: translateY(-50%)
+            }
+        }
+    }
+
+    .card-img-cover-content {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.7);
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        z-index: 2;
+        text-overflow: ellipsis;
+
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem;
+            color: #fff;
+
+            .card-title {
+                margin: 0;
+                font-size: 1.125rem;
+                font-weight: 400;
+                letter-spacing: 0;
+                line-height: 32px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .card-subtitle {
+                margin: 0;
+                font-size: .875rem;
+                font-weight: 400;
+                letter-spacing: .01em;
+                line-height: 20px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            a.card-subtitle {
+                $color: #fff;
+
+                color: $color;
+                text-decoration: none;
+                transition: color .2s ease-in-out;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: darken($color, 15%);
+                }
+            }
+        }
+    }
+}
